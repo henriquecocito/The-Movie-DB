@@ -18,4 +18,12 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="StyledText.Title">
+        <item name="android:textSize">24dp</item>
+    </style>
+
+    <style name="StyledText.SubTitle">
+        <item name="android:textSize">16dp</item>
+    </style>
+
 </resources>

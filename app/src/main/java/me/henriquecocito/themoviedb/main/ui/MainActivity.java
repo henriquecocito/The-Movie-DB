@@ -6,20 +6,24 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
+import android.view.View;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 import me.henriquecocito.themoviedb.R;
 import me.henriquecocito.themoviedb.databinding.ActivityMainBinding;
 import me.henriquecocito.themoviedb.main.MainContract;
+import me.henriquecocito.themoviedb.main.data.model.Genre;
 import me.henriquecocito.themoviedb.main.presentation.MainPresenter;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View {
 
     private ActivityMainBinding binding;
     private MainContract.Presenter presenter = new MainPresenter(this);
-    private ArrayList genres = new ArrayList(Arrays.asList("Teste"));
+    private ArrayList genres = new ArrayList();
     private MainAdapter adapter = new MainAdapter(this, genres);
 
     @Override
@@ -35,6 +39,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @Override
     public void showError(Throwable e) {
+        if(genres.size() < 1)
+            binding.container.addView(LayoutInflater.from(this).inflate(R.layout.view_error, binding.container, false));
+
         Snackbar
                 .make(binding.container, e.getLocalizedMessage(), Snackbar.LENGTH_LONG)
                 .show();
@@ -50,9 +57,38 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         binding.refresh.setRefreshing(false);
     }
 
+    @Override
+    public void showItems(List<Genre> genres) {
+        this.genres.clear();
+        this.genres.addAll(genres);
+
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void showEmptyView() {
+        binding.container.addView(LayoutInflater.from(this).inflate(R.layout.view_empty, binding.container, false));
+    }
+
+    @Override
+    public void hideEmptyView() {
+        View view = binding.container.findViewById(R.id.empty);
+        if(view != null) {
+            binding.container.removeView(view);
+        }
+    }
+
+    @Override
+    public void hideErrorView() {
+        View view = binding.container.findViewById(R.id.error);
+        if(view != null) {
+            binding.container.removeView(view);
+        }
+    }
+
     private void setupActionBar() {
         setSupportActionBar(binding.toolbar);
-        getSupportActionBar().setTitle(R.string.title_movies);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.title_genres);
     }
 
     private void setupSwipeRefresh() {

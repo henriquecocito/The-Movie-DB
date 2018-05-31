@@ -11,13 +11,14 @@ import java.util.List;
 
 import me.henriquecocito.themoviedb.R;
 import me.henriquecocito.themoviedb.databinding.ItemMainBinding;
+import me.henriquecocito.themoviedb.main.data.model.Genre;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     private Context context;
-    private List<String> genres;
+    private List<Genre> genres;
 
-    public MainAdapter(Context context, List<String> genres) {
+    public MainAdapter(Context context, List<Genre> genres) {
         this.genres = genres;
         this.context = context;
     }
@@ -50,8 +51,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             this.binding = binding;
         }
 
-        public void bind(String genre) {
-            binding.genre.setText(genre);
+        public void bind(Genre genre) {
+            binding.genre.setText(genre.getName());
         }
     }
 }

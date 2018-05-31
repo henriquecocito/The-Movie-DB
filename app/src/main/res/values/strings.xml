@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">The Movie DB</string>
     <string name="title_movies">Movies</string>
+    <string name="error_empty_title">Nothing found</string>
+    <string name="error_empty_subtitle">Swipe down to try again.</string>
+    <string name="error_unknown_title">Something went wrong</string>
+    <string name="title_genres">Genres</string>
 </resources>
