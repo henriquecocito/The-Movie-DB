@@ -18,6 +18,11 @@ public class MainPresenter implements MainContract.Presenter {
         this.view = view;
     }
 
+    public MainPresenter(MainContract.View view, MainContract.Domain interactor) {
+        this.view = view;
+        this.interactor = interactor;
+    }
+
     @Override
     public void start() {
         load();
