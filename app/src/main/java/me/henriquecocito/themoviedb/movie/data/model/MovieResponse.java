@@ -15,6 +15,12 @@ public class MovieResponse {
     @SerializedName("results")
     private List<Movie> results;
 
+    public MovieResponse(int id, int page, List<Movie> results) {
+        this.id = id;
+        this.page = page;
+        this.results = results;
+    }
+
     public int getId() {
         return id;
     }

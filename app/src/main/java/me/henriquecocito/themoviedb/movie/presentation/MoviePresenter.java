@@ -19,6 +19,11 @@ public class MoviePresenter implements MovieContract.Presenter {
         this.view = view;
     }
 
+    public MoviePresenter(MovieContract.View view, MovieContract.Domain interactor) {
+        this.view = view;
+        this.interactor = interactor;
+    }
+
     @Override
     public void start() {
     }

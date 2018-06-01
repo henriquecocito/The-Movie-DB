@@ -102,7 +102,6 @@ public class MainPresenterTest {
         genresResponseCaptor.getValue().onResponse(null, response);
 
         assertFalse(response.isSuccessful());
-        verify(view, times(1)).showLoading();
         verify(view, times(1)).hideErrorView();
         verify(view, times(1)).hideEmptyView();
         verify(view, times(1)).showError(any(Throwable.class));
