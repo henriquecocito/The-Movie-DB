@@ -66,7 +66,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
 
         public void bind(final Movie movie) {
             binding.genre.setText(movie.getTitle());
-            binding.rating.setRating(movie.getRating());
+            binding.rating.setRating(movie.getRating()/2);
             binding.card.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

@@ -20,6 +20,7 @@ import java.util.Objects;
 
 import me.henriquecocito.themoviedb.R;
 import me.henriquecocito.themoviedb.databinding.ActivityMovieBinding;
+import me.henriquecocito.themoviedb.detail.ui.DetailActivity;
 import me.henriquecocito.themoviedb.movie.data.model.Movie;
 import me.henriquecocito.themoviedb.movie.MovieContract;
 import me.henriquecocito.themoviedb.movie.presentation.MoviePresenter;
@@ -75,7 +76,7 @@ public class MovieActivity extends AppCompatActivity implements MovieContract.Vi
 
     @Override
     public void openMovie(Movie movie) {
-        int i = 0;
+        startActivity(DetailActivity.getIntent(this, movie.getId(), movie.getTitle()));
     }
 
     @Override
@@ -150,10 +151,8 @@ public class MovieActivity extends AppCompatActivity implements MovieContract.Vi
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 LinearLayoutManager lm = (LinearLayoutManager) recyclerView.getLayoutManager();
-                int total = lm.getItemCount();
-                int lastItem = lm.findLastVisibleItemPosition();
 
-                if(!binding.refresh.isRefreshing() && total <= lastItem + 3) {
+                if(!binding.refresh.isRefreshing() && lm.getItemCount() <= lm.findLastVisibleItemPosition() + 3) {
                     presenter.load(genreId);
                 }
             }
