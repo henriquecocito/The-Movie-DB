@@ -18,6 +18,11 @@ public class DetailPresenter implements DetailContract.Presenter {
         this.view = view;
     }
 
+    public DetailPresenter(DetailContract.View view, DetailContract.Domain interactor) {
+        this.view = view;
+        this.interactor = interactor;
+    }
+
     @Override
     public void start() {
 

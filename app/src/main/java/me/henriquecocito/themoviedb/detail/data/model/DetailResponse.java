@@ -21,11 +21,17 @@ public class DetailResponse {
     @SerializedName("backdrop_path")
     private String backdrop;
 
-    @SerializedName("poster_path")
-    private String poster;
-
     @SerializedName("homepage")
     private String homepage;
+
+    public DetailResponse(String title, String overview, Date date, float average, String backdrop, String homepage) {
+        this.title = title;
+        this.overview = overview;
+        this.date = date;
+        this.average = average;
+        this.backdrop = backdrop;
+        this.homepage = homepage;
+    }
 
     public String getTitle() {
         return title;
@@ -45,10 +51,6 @@ public class DetailResponse {
 
     public String getBackdrop() {
         return backdrop;
-    }
-
-    public String getPoster() {
-        return poster;
     }
 
     public String getHomepage() {
