@@ -18,13 +18,14 @@ import me.henriquecocito.themoviedb.databinding.ActivityMainBinding;
 import me.henriquecocito.themoviedb.main.MainContract;
 import me.henriquecocito.themoviedb.main.data.model.Genre;
 import me.henriquecocito.themoviedb.main.presentation.MainPresenter;
+import me.henriquecocito.themoviedb.movie.ui.MovieActivity;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View {
 
     private ActivityMainBinding binding;
     private MainContract.Presenter presenter = new MainPresenter(this);
     private ArrayList genres = new ArrayList();
-    private MainAdapter adapter = new MainAdapter(this, genres);
+    private MainAdapter adapter = new MainAdapter(this, this, genres);
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -84,6 +85,11 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         if(view != null) {
             binding.container.removeView(view);
         }
+    }
+
+    @Override
+    public void openMovies(int genreId, String genre) {
+        startActivity(MovieActivity.getIntent(this, genreId, genre));
     }
 
     private void setupActionBar() {

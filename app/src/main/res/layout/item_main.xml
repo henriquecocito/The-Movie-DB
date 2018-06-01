@@ -6,20 +6,22 @@
         android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_card_default"
-        android:layout_marginEnd="@dimen/margin_card_default"
-        android:layout_marginBottom="@dimen/margin_card_default">
+        android:layout_marginStart="@dimen/card_margin_default"
+        android:layout_marginEnd="@dimen/card_margin_default"
+        android:layout_marginBottom="@dimen/card_margin_default">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/padding_list_default">
+            android:background="@color/gray"
+            android:padding="@dimen/list_padding_default">
 
             <TextView
                 android:id="@+id/genre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/StyledText.SubTitle"
+                android:textColor="@android:color/white"
                 tools:text="@string/app_name" />
 
         </android.support.constraint.ConstraintLayout>

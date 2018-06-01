@@ -14,6 +14,7 @@ public interface MainContract {
         void showEmptyView();
         void hideEmptyView();
         void hideErrorView();
+        void openMovies(int genreId, String genre);
     }
 
     interface Presenter extends BaseContract.Presenter {

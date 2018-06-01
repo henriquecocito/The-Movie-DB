@@ -21,5 +21,9 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".movie.ui.MovieActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
     </application>
 </manifest>

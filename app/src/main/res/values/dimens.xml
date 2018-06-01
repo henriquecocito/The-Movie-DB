@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="padding_list_default">16dp</dimen>
+    <dimen name="list_padding_default">16dp</dimen>
     <dimen name="margin_image">16dp</dimen>
-    <dimen name="margin_card_default">16dp</dimen>
+    <dimen name="card_margin_default">16dp</dimen>
+    <dimen name="card_margin_image">8dp</dimen>
+    <dimen name="grid_margin_default">8dp</dimen>
+    <dimen name="grid_half_margin_default">4dp</dimen>
 </resources>
