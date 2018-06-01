@@ -5,6 +5,8 @@ Para instalar o app você precisa acessar o link abaixo e seguir as instruções
 
 [Beta by Crashlytics](https://betas.to/gpUDo9Rk)
 
+Ou faça o download do apk [aqui](https://github.com/henriquecocito/The-Movie-DB/blob/master/app-debug.apk).
+
 ## Desenvolvimento
 Esse app foi desenvolvido utilizando Java. 
 
